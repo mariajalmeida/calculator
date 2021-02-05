@@ -19,6 +19,10 @@ function calculateClicked() {
         sign = "+";
     } else if (operator == "sub") {
         sign = "-"
+    } else if (operator == "mul") {
+        sign = "*"
+    } else if (operator == "div") {
+        sign = "/"
     }
 
     let result = eval(firstNumber + sign + secondNumber);
