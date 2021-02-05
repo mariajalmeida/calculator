@@ -24,12 +24,6 @@ function calculateClicked() {
 
     let result = eval(firstNumber + sign + secondNumber);
 
-    // console.log(result);
-    // const parent = document.querySelector("#results");
-    // const finalResult = parent.lastElementChild;
-
-    // finalResult.textContent = result;
-
     roundNumbers(result);
 }
 
@@ -59,7 +53,7 @@ function roundNumbers(res) {
     } else if (checkBox.checked & value == "8") {
         roundedResult = Math.round((res + Number.EPSILON) * 100000) / 100000;
     } else {
-        console.log("fail");
+        roundedResult = res;
     }
 
     soughtResult(roundedResult);
@@ -67,4 +61,11 @@ function roundNumbers(res) {
 
 function soughtResult(f) {
     console.log("final result", f)
+
+    const parent = document.querySelector("#results");
+
+    const item = document.createElement("li");
+    parent.appendChild(item);
+
+    item.textContent = f;
 }
