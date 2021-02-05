@@ -12,6 +12,16 @@ function calculateClicked() {
 
     const firstNumber = document.querySelector("#firstnumber").value;
     const secondNumber = document.querySelector("#secondnumber").value;
+    const operator = document.querySelector("#operator").value;
 
-    console.log(firstNumber, secondNumber);
+    let sign = "";
+    if (operator == "add") {
+        sign = "+";
+    } else if (operator == "sub") {
+        sign = "-"
+    }
+
+    let result = eval(firstNumber + sign + secondNumber);
+
+    console.log(result);
 }
