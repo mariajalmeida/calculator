@@ -1,8 +1,9 @@
 window.addEventListener("DOMContentLoaded", setUp);
 
+const button = document.querySelector("#calculate");
+
 function setUp() {
-    const button = document.querySelector("#calculate");
-    button.addEventListener("click", calculateClicked)
+    button.addEventListener("click", calculateClicked);
 }
 
 function calculateClicked() {
@@ -68,4 +69,24 @@ function soughtResult(f) {
     parent.appendChild(item);
 
     item.textContent = f;
+
+    // parent.insertBefore(item, parent.childNodes[0]);
+
+    parent.scrollTop = parent.scrollHeight;
+
+    const clearResults = document.querySelector("#clear");
+    clearResults.addEventListener("click", clearList);
+}
+
+function clearList() {
+    button.removeEventListener("click", calculateClicked);
+
+    document.querySelector("#firstnumber").value = "";
+    document.querySelector("#secondnumber").value = "";
+    document.querySelector("#results").textContent = "";
+    document.getElementById("doround").checked = false;
+    document.querySelector("#decimals").value = "0";
+    document.querySelector("#operator").value = "add";
+
+    setUp();
 }
